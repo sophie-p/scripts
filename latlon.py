@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 import re
+import sys
 
 def decimalat(DegreeString):
 	#Converts a string for latitude or longitude into a float
@@ -16,8 +17,14 @@ def decimalat(DegreeString):
 
 	return DecimalDegree
 
+assert( decimalat ('24 14.04 N') == 24.234)
+assert( decimalat ('24 14.04 S') == -24.234)
+assert( decimalat ('24 14.04 W') == -24.234)
 
-InFileName = 'Marrus_claudanielis.txt'
+arguments = sys.argv
+print (arguments)
+
+InFileName = sys.argv [1]
 
 InFile = open ( InFileName, 'r' )
 
